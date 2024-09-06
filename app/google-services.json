@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "708840103974",
+    "project_id": "greenlife-7b9f1",
+    "storage_bucket": "greenlife-7b9f1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:708840103974:android:4f5658e13efaeadb2806e7",
+        "android_client_info": {
+          "package_name": "com.example.greenlife"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA2dbiUxxDOiUEC4fVYzIhz8WKztTUa6hU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

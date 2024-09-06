@@ -1,0 +1,17 @@
+package com.example.greenlife.navigation
+
+const val ROUT_ABOUT = "about"
+const val ROUT_SPLASH = "splash"
+const val ROUT_SIGNUP = "signup"
+const val ROUT_LOGIN = "login"
+const val ROUT_HOME = "home"
+const val ROUT_SOILTYPE = "soiltype"
+const val ROUT_CROPTYPE = "croptype"
+const val ROUT_CLIMATE = "climate"
+const val ROUT_PROFILE = "profile"
+const val ROUT_ADDCROP = "addcrop"
+const val ROUT_VIEWCROP = "viewcrop"
+const val ROUT_VEGETABLES = "vegetables"
+const val ROUT_FRUITS = "fruits"
+const val ROUT_GRAINS = "grains"
+const val ROUT_SHOP = "shop"
