@@ -58,6 +58,7 @@ import com.example.greenlife.R
 import com.example.greenlife.navigation.ROUT_FRUITS
 import com.example.greenlife.navigation.ROUT_SOILTYPE
 import com.example.greenlife.navigation.ROUT_VEGETABLES
+import com.example.greenlife.navigation.ROUT_VIEWCROP
 import com.example.greenlife.ui.theme.green
 
 
@@ -235,7 +236,7 @@ fun CroptypeScreen(navController: NavController){
                         )
 
                         Button(
-                            onClick = { navController.navigate(ROUT_VEGETABLES) },
+                            onClick = { navController.navigate(ROUT_VIEWCROP) },
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .height(50.dp),
