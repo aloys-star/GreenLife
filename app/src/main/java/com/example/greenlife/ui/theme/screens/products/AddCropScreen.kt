@@ -26,9 +26,13 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.ShoppingCart
 import androidx.compose.material.icons.outlined.Add
 import androidx.compose.material.icons.outlined.Home
 import androidx.compose.material.icons.outlined.Info
+import androidx.compose.material.icons.outlined.Person
+import androidx.compose.material.icons.outlined.ShoppingCart
 import androidx.compose.material3.Badge
 import androidx.compose.material3.BadgedBox
 import androidx.compose.material3.Button
@@ -42,6 +46,8 @@ import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
@@ -66,7 +72,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.greenlife.data.CropViewModel
 import com.example.greenlife.navigation.ROUT_ADDCROP
-
+import com.example.greenlife.ui.theme.green
 
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -83,9 +89,11 @@ fun AddCropScreen(navController:NavHostController){
         var selected by remember { mutableIntStateOf(0) }
         Scaffold(
             bottomBar = {
-                NavigationBar (
-                    containerColor = Color.LightGray,
-                    contentColor = Color.Black){
+
+                NavigationBar(
+                    containerColor = green,
+                    contentColor = Color.Gray
+                ) {
                     bottomNavItems.forEachIndexed { index, bottomNavItem ->
                         NavigationBarItem(
                             selected = index == selected,
@@ -97,7 +105,7 @@ fun AddCropScreen(navController:NavHostController){
                                 BadgedBox(
                                     badge = {
                                         if (bottomNavItem.badges != 0) {
-                                            Badge (containerColor = Color.White){
+                                            Badge {
                                                 Text(text = bottomNavItem.badges.toString())
                                             }
                                         } else if (bottomNavItem.hasNews) {
@@ -116,26 +124,30 @@ fun AddCropScreen(navController:NavHostController){
                             },
                             label = {
                                 Text(text = bottomNavItem.title)
-                            }
-                        )
+                            })
                     }
                 }
             },
 
+            topBar = {
+                TopAppBar(
+                    title = { Text(text = "GreenLife") },
+                    colors = TopAppBarDefaults.mediumTopAppBarColors(green))
+            },
+
+
             floatingActionButton = {
-                FloatingActionButton(
-                    onClick = { /*TODO*/ },
-                    containerColor = Color.LightGray
-                ) {
-                    IconButton(onClick = {
-                        navController.navigate(ROUT_ADDCROP)
-                    }) {
+                FloatingActionButton(onClick = { /*TODO*/ }) {
+                    IconButton(onClick = { /*TODO*/ }) {
                         Icon(imageVector = Icons.Default.Add,
                             contentDescription = "menu")
                     }
                 }
             },
-            //Content Section
+
+
+
+                //Content Section
             content = @Composable{
                 Column(
                     modifier = Modifier
@@ -146,10 +158,10 @@ fun AddCropScreen(navController:NavHostController){
                 ){
 
 
-                    Spacer(modifier = Modifier.height(50.dp))
+                    Spacer(modifier = Modifier.height(100.dp))
 
                     Text(
-                        text = "Upload Here!",
+                        text = "Add New Crop",
                         fontSize = 20.sp,
                         fontWeight = FontWeight.Bold,
                         fontFamily = FontFamily.SansSerif)
@@ -245,23 +257,24 @@ val bottomNavItems = listOf(
 
 
     BottomNavItem(
-        title = "Upload",
-        route="add_crops",
-        selectedIcon= Icons.Filled.Add,
-        unselectedIcon= Icons.Outlined.Add,
+        title = "About",
+        route="about",
+        selectedIcon= Icons.Filled.Info,
+        unselectedIcon= Icons.Outlined.Info,
         hasNews = true,
         badges=0
     ),
 
     BottomNavItem(
-        title = "View",
-        route="view_crops",
-        selectedIcon= Icons.Filled.Info,
-        unselectedIcon= Icons.Outlined.Info,
+        title = "Shop",
+        route="Shop",
+        selectedIcon= Icons.Filled.ShoppingCart,
+        unselectedIcon= Icons.Outlined.ShoppingCart,
         hasNews = true,
         badges=1
     ),
 
+    
 
     )
 

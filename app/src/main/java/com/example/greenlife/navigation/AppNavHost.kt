@@ -13,7 +13,6 @@ import com.example.greenlife.ui.theme.screens.croptype.CroptypeScreen
 import com.example.greenlife.ui.theme.screens.fruits.FruitsScreen
 import com.example.greenlife.ui.theme.screens.grains.GrainsScreen
 import com.example.greenlife.ui.theme.screens.home.HomeScreen
-import com.example.greenlife.ui.theme.screens.profile.ProfileScreen
 import com.example.greenlife.ui.theme.screens.shop.ShopScreen
 import com.example.greenlife.ui.theme.screens.signup.SignupScreen
 import com.example.greenlife.ui.theme.screens.soiltype.SoiltypeScreen
@@ -28,7 +27,7 @@ import com.example.property.ui.theme.screens.products.ViewCropScreen
 fun AppNavHost(
     modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController(),
-    startDestination:String = ROUT_ABOUT
+    startDestination:String = ROUT_VIEWCROP
 ) {
     NavHost(
         navController = navController,
@@ -70,9 +69,6 @@ fun AppNavHost(
             ClimateScreen(navController = navController)
         }
 
-        composable(ROUT_PROFILE){
-            ProfileScreen(navController = navController)
-        }
 
         composable(ROUT_ADDCROP){
             AddCropScreen(navController = navController)

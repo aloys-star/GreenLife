@@ -373,14 +373,7 @@ val bottomNavItems = listOf(
         badges=1
     ),
 
-    BottomNavItem(
-        title = "Profile",
-        route="profile",
-        selectedIcon= Icons.Filled.Person,
-        unselectedIcon= Icons.Outlined.Person,
-        hasNews = true,
-        badges=0
-    ),
+
 
 
 

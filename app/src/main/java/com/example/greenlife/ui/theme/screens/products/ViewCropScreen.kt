@@ -22,7 +22,15 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Edit
+import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Info
+import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Send
+import androidx.compose.material.icons.filled.ShoppingCart
+import androidx.compose.material.icons.outlined.Home
+import androidx.compose.material.icons.outlined.Info
+import androidx.compose.material.icons.outlined.Person
+import androidx.compose.material.icons.outlined.ShoppingCart
 import androidx.compose.material3.Badge
 import androidx.compose.material3.BadgedBox
 import androidx.compose.material3.Card
@@ -36,6 +44,7 @@ import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
@@ -47,6 +56,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontFamily
@@ -62,6 +72,9 @@ import coil.compose.rememberAsyncImagePainter
 import com.example.greenlife.data.CropViewModel
 import com.example.greenlife.models.Crop
 import com.example.greenlife.navigation.ROUT_ADDCROP
+import com.example.greenlife.ui.theme.green
+import com.example.property.ui.theme.screens.products.BottomNavItem
+
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -74,19 +87,21 @@ fun ViewCropScreen(navController:NavHostController) {
         var productRepository = CropViewModel(navController, context)
 
 
-        val emptyProductState = remember { mutableStateOf(Crop("","","","","","","")) }
+        val emptyProductState = remember { mutableStateOf(Crop("", "", "", "", "", "", "")) }
         var emptyProductsListState = remember { mutableStateListOf<Crop>() }
 
         var products = productRepository.allCrops(emptyProductState, emptyProductsListState)
 
 
         var selected by remember { mutableIntStateOf(0) }
+
         Scaffold(
             bottomBar = {
-                NavigationBar (
-                    containerColor = Color.LightGray,
-                    contentColor = Color.Black){
-                    bottomNavItems.forEachIndexed { index, bottomNavItem ->
+                NavigationBar(
+                    containerColor = green,
+                    contentColor = Color.Gray
+                ) {
+                    bottomNavItem.forEachIndexed { index, bottomNavItem ->
                         NavigationBarItem(
                             selected = index == selected,
                             onClick = {
@@ -97,7 +112,7 @@ fun ViewCropScreen(navController:NavHostController) {
                                 BadgedBox(
                                     badge = {
                                         if (bottomNavItem.badges != 0) {
-                                            Badge (containerColor = Color.White){
+                                            Badge {
                                                 Text(text = bottomNavItem.badges.toString())
                                             }
                                         } else if (bottomNavItem.hasNews) {
@@ -105,61 +120,65 @@ fun ViewCropScreen(navController:NavHostController) {
                                         }
                                     }
                                 ) {
-                                    Icon(imageVector =
-                                    if (index == selected)
-                                        bottomNavItem.selectedIcon
-                                    else
-                                        bottomNavItem.unselectedIcon,
-                                        contentDescription = bottomNavItem.title)
+                                    Icon(
+                                        imageVector =
+                                        if (index == selected)
+                                            bottomNavItem.selectedIcon
+                                        else
+                                            bottomNavItem.unselectedIcon,
+                                        contentDescription = bottomNavItem.title
+                                    )
                                 }
 
                             },
                             label = {
                                 Text(text = bottomNavItem.title)
-                            }
-                        )
+                            })
                     }
                 }
             },
 
             topBar = {
                 TopAppBar(
-                    title = { Text(text = "Available Products",
-                        modifier = Modifier.fillMaxWidth(),
-                        textAlign = TextAlign.Center,
-                        fontSize = 20.sp,
-                        fontFamily = FontFamily.SansSerif) })
-
+                    title = { Text(text = "GreenLife") },
+                    colors = TopAppBarDefaults.mediumTopAppBarColors(green)
+                )
             },
+
 
             floatingActionButton = {
                 FloatingActionButton(
                     onClick = { /*TODO*/ },
-                    containerColor = Color.LightGray) {
+                    containerColor = Color.LightGray
+                ) {
                     IconButton(onClick = {
                         navController.navigate(ROUT_ADDCROP)
                     }) {
-                        Icon(imageVector = Icons.Default.Add,
-                            contentDescription = "menu")
+                        Icon(
+                            imageVector = Icons.Default.Add,
+                            contentDescription = "menu"
+                        )
                     }
                 }
             },
             //Content Section
-            content = @Composable{
+            content = @Composable {
                 Column(
                     modifier = Modifier
                         .fillMaxSize(),
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
-                    Text(text = "All products",
+                    Text(
+                        text = "All products",
                         fontSize = 30.sp,
                         fontFamily = FontFamily.Cursive,
-                        color = Color.Red)
+                        color = Color.Red
+                    )
 
                     Spacer(modifier = Modifier.height(20.dp))
 
-                    LazyColumn{
-                        items(products){
+                    LazyColumn {
+                        items(products) {
                             CropItem(
                                 name = it.name,
                                 soiltype = it.soiltype,
@@ -175,13 +194,54 @@ fun ViewCropScreen(navController:NavHostController) {
                     }
                 }
 
-            }
 
+            }
         )
+
+
     }
+
 }
 
+val bottomNavItem = listOf(
+    BottomNavItem(
+        title = "Home",
+        route="home",
+        selectedIcon= Icons.Filled.Home,
+        unselectedIcon= Icons.Outlined.Home,
+        hasNews = false,
+        badges=0
+    ),
 
+        BottomNavItem(
+            title = "About",
+            route="about",
+            selectedIcon= Icons.Filled.Info,
+            unselectedIcon= Icons.Outlined.Info,
+            hasNews = false,
+            badges=0
+        ),
+
+    BottomNavItem(
+        title = "Shop",
+        route="shop",
+        selectedIcon= Icons.Filled.ShoppingCart,
+        unselectedIcon= Icons.Outlined.ShoppingCart,
+        hasNews = false,
+        badges=0
+    ),
+
+    BottomNavItem(
+        title = "Profile",
+        route="profile",
+        selectedIcon= Icons.Filled.Person,
+        unselectedIcon= Icons.Outlined.Person,
+        hasNews = false,
+        badges=0
+    ),
+
+
+    )
 
 
 
@@ -195,7 +255,7 @@ fun CropItem(name:String, soiltype:String, temperature:String,rainfall:String,ph
     //1 item
     Column(modifier = Modifier
         .fillMaxWidth()
-        .padding(15.dp)) {
+        .padding(15.dp, top = 60.dp, end = 15.dp)) {
         Card (modifier = Modifier
             .height(250.dp)
             .width(370.dp)
@@ -232,7 +292,7 @@ fun CropItem(name:String, soiltype:String, temperature:String,rainfall:String,ph
                         )
 
 
-                        Text(text = "Quantity : $soiltype",
+                        Text(text = "Soil Type : $soiltype",
                             fontSize = 20.sp,
                             fontWeight = FontWeight.Medium,
                             fontFamily = FontFamily.Default,
@@ -241,7 +301,7 @@ fun CropItem(name:String, soiltype:String, temperature:String,rainfall:String,ph
 
                         Spacer(modifier = Modifier.height(5.dp))
 
-                        Text(text = "$temperature degrees",
+                        Text(text = "Temperature : $temperature degrees",
                             fontSize = 19.sp,
                             fontWeight = FontWeight.Bold,
                             fontFamily = FontFamily.Default,
@@ -250,7 +310,7 @@ fun CropItem(name:String, soiltype:String, temperature:String,rainfall:String,ph
                         Spacer(modifier = Modifier.height(5.dp))
 
 
-                        Text(text = "$rainfall mm",
+                        Text(text = "Rainfall : $rainfall mm",
                             fontSize = 19.sp,
                             fontWeight = FontWeight.Bold,
                             fontFamily = FontFamily.Default,
@@ -266,26 +326,7 @@ fun CropItem(name:String, soiltype:String, temperature:String,rainfall:String,ph
                                 .fillMaxWidth(),
                             verticalAlignment = Alignment.CenterVertically,
                         ){
-                            OutlinedButton(
-                                onClick = {
-                                    val smsIntent= Intent(Intent.ACTION_SENDTO)
-                                    smsIntent.data="smsto:$phone".toUri()
-                                    smsIntent.putExtra("sms_body","Hello Seller,...?")
-                                    mContext.startActivity(smsIntent)
-                                },
-                                shape = RoundedCornerShape(8.dp),
 
-                                ) {
-                                Row {
-                                    Icon(
-                                        imageVector = Icons.Default.Send,
-                                        contentDescription = "Message Seller")
-                                    Spacer(modifier = Modifier.width(3.dp))
-                                    Text(
-                                        text = "Message Seller"
-                                    )
-                                }
-                            }
                             Row (
                                 modifier = Modifier.fillMaxWidth(),
                                 horizontalArrangement = Arrangement.End
@@ -319,6 +360,8 @@ fun CropItem(name:String, soiltype:String, temperature:String,rainfall:String,ph
 
     }
 }
+
+
 
 
 

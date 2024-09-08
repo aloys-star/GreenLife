@@ -127,14 +127,7 @@ fun ShopScreen(navController: NavController){
             },
 
 
-            floatingActionButton = {
-                FloatingActionButton(onClick = { /*TODO*/ }) {
-                    IconButton(onClick = { /*TODO*/ }) {
-                        Icon(imageVector = Icons.Default.Add,
-                            contentDescription = "menu")
-                    }
-                }
-            },
+
             //Content Section
             content = @Composable {
                 Column(
@@ -160,7 +153,7 @@ fun ShopScreen(navController: NavController){
                     Card(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .height(700.dp),
+                            .height(1100.dp),
                         shape = RoundedCornerShape(topStart = 60.dp, topEnd = 60.dp, bottomEnd = 60.dp, bottomStart = 60.dp ),
                         colors = CardDefaults.cardColors(greenyellow)
                     ) {
@@ -184,7 +177,7 @@ fun ShopScreen(navController: NavController){
                                 Box(
                                     modifier = Modifier
                                         .height(180.dp)
-                                        .width(180.dp),
+                                        .width(140.dp),
                                     contentAlignment = Alignment.Center
                                 ) {
 
@@ -207,7 +200,7 @@ fun ShopScreen(navController: NavController){
                                 }
 
                             }
-                            Column(modifier = Modifier.padding(start = 10.dp, top = 20.dp)) {
+                            Column(modifier = Modifier.padding(start = 10.dp, top = 10.dp)) {
                                 Text(text = "Nitrogen fertilizer", fontSize = 20.sp)
                                 Text(text = "Brand : Milorgranite")
                                 Row {
@@ -239,26 +232,402 @@ fun ShopScreen(navController: NavController){
                                 }
 
                                 Text(text = "14,400 Reviews")
+                                Text(text = "Price : Ksh.1800")
                                 Spacer(modifier = Modifier.height(10.dp))
 
 
                                 val mContext = LocalContext.current
-
                                 Button(
-                                    onClick = {  },
+                                    onClick = {
+                                        val callIntent= Intent(Intent.ACTION_DIAL)
+                                        callIntent.data="tel:0720245837".toUri()
+                                        mContext.startActivity(callIntent)
+
+                                    },
                                     modifier = Modifier
+                                        .padding(end = 10.dp)
                                         .fillMaxWidth()
-                                        .height(50.dp)
-                                        .padding( end = 10.dp),
+                                        .height(50.dp),
                                     colors = ButtonDefaults.buttonColors(Color.Black),
                                     shape = RoundedCornerShape(15.dp)
                                 ) {
-                                    Text(text = "MPESA")
+                                    Text(text = "Call to Order")
+
                                 }
                             }
 
 
                         }
+
+                        Spacer(modifier = Modifier.height(15.dp))
+
+
+                        //Row 2
+                        Row {
+                            Card(
+                                modifier = Modifier.padding(
+                                    top = 10.dp,
+                                    start = 10.dp,
+                                    end = 10.dp
+                                )
+                            ) {
+                                Box(
+                                    modifier = Modifier
+                                        .height(180.dp)
+                                        .width(140.dp),
+                                    contentAlignment = Alignment.Center
+                                ) {
+
+                                    Image(
+                                        painter = painterResource(id = R.drawable.phosphorusfertilizer),
+                                        contentDescription = "home",
+                                        modifier = Modifier.fillMaxSize(),
+                                        contentScale = ContentScale.Crop
+                                    )
+
+
+
+                                }
+
+                            }
+                            Column(modifier = Modifier.padding(start = 10.dp, top = 10.dp)) {
+                                Text(text = "Phosphorus fertilizer", fontSize = 20.sp)
+                                Text(text = "Brand : Falcon")
+                                Row {
+                                    Icon(
+                                        imageVector = Icons.Default.Star,
+                                        contentDescription = "star",
+                                        tint = Color.Black,
+                                        modifier = Modifier.size(35.dp)
+                                    )
+                                    Icon(
+                                        imageVector = Icons.Default.Star,
+                                        contentDescription = "star",
+                                        tint = Color.Black,
+                                        modifier = Modifier.size(35.dp)
+                                    )
+                                    Icon(
+                                        imageVector = Icons.Default.Star,
+                                        contentDescription = "star",
+                                        tint = Color.Black,
+                                        modifier = Modifier.size(35.dp)
+                                    )
+                                    Icon(
+                                        imageVector = Icons.Default.Star,
+                                        contentDescription = "star",
+                                        tint = Color.Black,
+                                        modifier = Modifier.size(35.dp)
+                                    )
+
+                                }
+
+                                Text(text = "10,200 Reviews")
+                                Text(text = "Price : Ksh.2100")
+                                Spacer(modifier = Modifier.height(10.dp))
+
+
+                                val mContext = LocalContext.current
+                                Button(
+                                    onClick = {
+                                        val callIntent= Intent(Intent.ACTION_DIAL)
+                                        callIntent.data="tel:0720245837".toUri()
+                                        mContext.startActivity(callIntent)
+
+                                    },
+                                    modifier = Modifier
+                                        .padding(end = 10.dp)
+                                        .fillMaxWidth()
+                                        .height(50.dp),
+                                    colors = ButtonDefaults.buttonColors(Color.Black),
+                                    shape = RoundedCornerShape(15.dp)
+                                ) {
+                                    Text(text = "Call to Order")
+
+                                }
+                            }
+
+
+                        }
+                        Spacer(modifier = Modifier.height(15.dp))
+
+
+                        //Row 3
+                        Row {
+                            Card(
+                                modifier = Modifier.padding(
+                                    top = 10.dp,
+                                    start = 10.dp,
+                                    end = 10.dp
+                                )
+                            ) {
+                                Box(
+                                    modifier = Modifier
+                                        .height(180.dp)
+                                        .width(140.dp),
+                                    contentAlignment = Alignment.Center
+                                ) {
+
+                                    Image(
+                                        painter = painterResource(id = R.drawable.potasuimfertilizer),
+                                        contentDescription = "home",
+                                        modifier = Modifier.fillMaxSize(),
+                                        contentScale = ContentScale.Crop
+                                    )
+
+
+
+                                }
+
+                            }
+                            Column(modifier = Modifier.padding(start = 10.dp, top = 10.dp)) {
+                                Text(text = "Potassium fertilizer", fontSize = 20.sp)
+                                Text(text = "Brand : Thabiti")
+                                Row {
+                                    Icon(
+                                        imageVector = Icons.Default.Star,
+                                        contentDescription = "star",
+                                        tint = Color.Black,
+                                        modifier = Modifier.size(35.dp)
+                                    )
+                                    Icon(
+                                        imageVector = Icons.Default.Star,
+                                        contentDescription = "star",
+                                        tint = Color.Black,
+                                        modifier = Modifier.size(35.dp)
+                                    )
+                                    Icon(
+                                        imageVector = Icons.Default.Star,
+                                        contentDescription = "star",
+                                        tint = Color.Black,
+                                        modifier = Modifier.size(35.dp)
+                                    )
+                                    Icon(
+                                        imageVector = Icons.Default.Star,
+                                        contentDescription = "star",
+                                        tint = Color.Black,
+                                        modifier = Modifier.size(35.dp)
+                                    )
+
+                                }
+
+                                Text(text = "9,800 Reviews")
+                                Text(text = "Price : Ksh.1900")
+                                Spacer(modifier = Modifier.height(10.dp))
+
+
+                                val mContext = LocalContext.current
+                                Button(
+                                    onClick = {
+                                        val callIntent= Intent(Intent.ACTION_DIAL)
+                                        callIntent.data="tel:0720245837".toUri()
+                                        mContext.startActivity(callIntent)
+
+                                    },
+                                    modifier = Modifier
+                                        .padding(end = 10.dp)
+                                        .fillMaxWidth()
+                                        .height(50.dp),
+                                    colors = ButtonDefaults.buttonColors(Color.Black),
+                                    shape = RoundedCornerShape(15.dp)
+                                ) {
+                                    Text(text = "Call to Order")
+
+                                }
+                            }
+
+
+                        }
+
+                        Spacer(modifier = Modifier.height(15.dp))
+
+
+                        //Row 4
+                        Row {
+                            Card(
+                                modifier = Modifier.padding(
+                                    top = 10.dp,
+                                    start = 10.dp,
+                                    end = 10.dp
+                                )
+                            ) {
+                                Box(
+                                    modifier = Modifier
+                                        .height(180.dp)
+                                        .width(140.dp),
+                                    contentAlignment = Alignment.Center
+                                ) {
+
+                                    Image(
+                                        painter = painterResource(id = R.drawable.organicfertilizers),
+                                        contentDescription = "organicfertilizer",
+                                        modifier = Modifier.fillMaxSize(),
+                                        contentScale = ContentScale.Crop
+                                    )
+
+
+
+                                }
+
+                            }
+                            Column(modifier = Modifier.padding(start = 10.dp, top = 10.dp)) {
+                                Text(text = "Organic fertilizer", fontSize = 20.sp)
+                                Text(text = "Brand : Evergrow")
+                                Row {
+                                    Icon(
+                                        imageVector = Icons.Default.Star,
+                                        contentDescription = "star",
+                                        tint = Color.Black,
+                                        modifier = Modifier.size(35.dp)
+                                    )
+                                    Icon(
+                                        imageVector = Icons.Default.Star,
+                                        contentDescription = "star",
+                                        tint = Color.Black,
+                                        modifier = Modifier.size(35.dp)
+                                    )
+                                    Icon(
+                                        imageVector = Icons.Default.Star,
+                                        contentDescription = "star",
+                                        tint = Color.Black,
+                                        modifier = Modifier.size(35.dp)
+                                    )
+                                    Icon(
+                                        imageVector = Icons.Default.Star,
+                                        contentDescription = "star",
+                                        tint = Color.Black,
+                                        modifier = Modifier.size(35.dp)
+                                    )
+
+                                }
+
+                                Text(text = "10,580 Reviews")
+                                Text(text = "Price : Ksh.2400")
+                                Spacer(modifier = Modifier.height(10.dp))
+
+
+                                val mContext = LocalContext.current
+                                Button(
+                                    onClick = {
+                                        val callIntent= Intent(Intent.ACTION_DIAL)
+                                        callIntent.data="tel:0720245837".toUri()
+                                        mContext.startActivity(callIntent)
+
+                                    },
+                                    modifier = Modifier
+                                        .padding(end = 10.dp)
+                                        .fillMaxWidth()
+                                        .height(50.dp),
+                                    colors = ButtonDefaults.buttonColors(Color.Black),
+                                    shape = RoundedCornerShape(15.dp)
+                                ) {
+                                    Text(text = "Call to Order")
+
+                                }
+                            }
+
+
+                        }
+
+                        Spacer(modifier = Modifier.height(15.dp))
+
+                        //Row 5
+                        Row {
+                            Card(
+                                modifier = Modifier.padding(
+                                    top = 10.dp,
+                                    start = 10.dp,
+                                    end = 10.dp
+                                )
+                            ) {
+                                Box(
+                                    modifier = Modifier
+                                        .height(180.dp)
+                                        .width(140.dp),
+                                    contentAlignment = Alignment.Center
+                                ) {
+
+                                    Image(
+                                        painter = painterResource(id = R.drawable.micronutrientfertilizer),
+                                        contentDescription = "micronutrientfertilizer",
+                                        modifier = Modifier.fillMaxSize(),
+                                        contentScale = ContentScale.Crop
+                                    )
+
+
+
+                                }
+
+                            }
+                            Column(modifier = Modifier.padding(start = 10.dp, top = 10.dp)) {
+                                Text(text = "Micronutrient fertilizer", fontSize = 20.sp)
+                                Text(text = "Brand : Amiran")
+                                Row {
+                                    Icon(
+                                        imageVector = Icons.Default.Star,
+                                        contentDescription = "star",
+                                        tint = Color.Black,
+                                        modifier = Modifier.size(35.dp)
+                                    )
+                                    Icon(
+                                        imageVector = Icons.Default.Star,
+                                        contentDescription = "star",
+                                        tint = Color.Black,
+                                        modifier = Modifier.size(35.dp)
+                                    )
+                                    Icon(
+                                        imageVector = Icons.Default.Star,
+                                        contentDescription = "star",
+                                        tint = Color.Black,
+                                        modifier = Modifier.size(35.dp)
+                                    )
+                                    Icon(
+                                        imageVector = Icons.Default.Star,
+                                        contentDescription = "star",
+                                        tint = Color.Black,
+                                        modifier = Modifier.size(35.dp)
+                                    )
+
+                                }
+
+                                Text(text = "6,970 Reviews")
+                                Text(text = "Price : Ksh.1700")
+                                Spacer(modifier = Modifier.height(10.dp))
+
+
+                                val mContext = LocalContext.current
+                                Button(
+                                    onClick = {
+                                        val callIntent= Intent(Intent.ACTION_DIAL)
+                                        callIntent.data="tel:0720245837".toUri()
+                                        mContext.startActivity(callIntent)
+
+                                    },
+                                    modifier = Modifier
+                                        .padding(end = 10.dp)
+                                        .fillMaxWidth()
+                                        .height(50.dp),
+                                    colors = ButtonDefaults.buttonColors(Color.Black),
+                                    shape = RoundedCornerShape(15.dp)
+                                ) {
+                                    Text(text = "Call to Order")
+
+                                }
+                            }
+
+
+                        }
+
+
+
+
+
+
+
+
+
+
+
+
                     }
 
 
@@ -306,14 +675,6 @@ val bottomNavItems = listOf(
         badges=1
     ),
 
-    BottomNavItem(
-        title = "Profile",
-        route="profile",
-        selectedIcon= Icons.Filled.Person,
-        unselectedIcon= Icons.Outlined.Person,
-        hasNews = true,
-        badges=0
-    ),
 
 
 

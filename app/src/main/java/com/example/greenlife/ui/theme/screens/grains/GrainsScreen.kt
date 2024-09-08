@@ -50,7 +50,7 @@ fun GrainsScreen(navController: NavController){
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .verticalScroll(rememberScrollState())) {
+            ) {
 
         var selected by remember { mutableIntStateOf(0) }
         Scaffold (
@@ -162,14 +162,6 @@ val bottomNavItems = listOf(
         badges=1
     ),
 
-    BottomNavItem(
-        title = "Profile",
-        route="profile",
-        selectedIcon= Icons.Filled.Person,
-        unselectedIcon= Icons.Outlined.Person,
-        hasNews = true,
-        badges=0
-    ),
 
 
 
