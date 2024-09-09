@@ -17,7 +17,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Delete
@@ -165,14 +167,15 @@ fun ViewCropScreen(navController:NavHostController) {
             content = @Composable {
                 Column(
                     modifier = Modifier
-                        .fillMaxSize(),
+                        .fillMaxSize()
+                        .padding(top = 120.dp, bottom = 120.dp),
                     horizontalAlignment = Alignment.CenterHorizontally
                 ) {
                     Text(
-                        text = "All products",
+                        text = "Additional crops",
                         fontSize = 30.sp,
                         fontFamily = FontFamily.Cursive,
-                        color = Color.Red
+                        color = Color.Black
                     )
 
                     Spacer(modifier = Modifier.height(20.dp))
@@ -231,14 +234,6 @@ val bottomNavItem = listOf(
         badges=0
     ),
 
-    BottomNavItem(
-        title = "Profile",
-        route="profile",
-        selectedIcon= Icons.Filled.Person,
-        unselectedIcon= Icons.Outlined.Person,
-        hasNews = false,
-        badges=0
-    ),
 
 
     )
@@ -255,7 +250,7 @@ fun CropItem(name:String, soiltype:String, temperature:String,rainfall:String,ph
     //1 item
     Column(modifier = Modifier
         .fillMaxWidth()
-        .padding(15.dp, top = 60.dp, end = 15.dp)) {
+        .padding(15.dp, top = 30.dp, end = 15.dp)) {
         Card (modifier = Modifier
             .height(250.dp)
             .width(370.dp)

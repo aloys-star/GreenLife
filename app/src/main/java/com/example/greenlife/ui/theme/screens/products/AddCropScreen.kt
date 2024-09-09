@@ -72,6 +72,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.greenlife.data.CropViewModel
 import com.example.greenlife.navigation.ROUT_ADDCROP
+import com.example.greenlife.navigation.ROUT_VIEWCROP
 import com.example.greenlife.ui.theme.green
 
 
@@ -153,7 +154,7 @@ fun AddCropScreen(navController:NavHostController){
                     modifier = Modifier
                         .fillMaxSize()
                         .verticalScroll(rememberScrollState())
-                    ,
+                        .padding(bottom = 20.dp),
                     horizontalAlignment = Alignment.CenterHorizontally
                 ){
 
@@ -210,14 +211,8 @@ fun AddCropScreen(navController:NavHostController){
 
                     Spacer(modifier = Modifier.height(20.dp))
 
-                    OutlinedTextField(
-                        value = phone,
-                        onValueChange = { phone = it },
-                        label = { Text(text = "Phone") },
-                        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Text)
-                    )
 
-                    Spacer(modifier = Modifier.height(20.dp))
+
 
 
 
@@ -345,6 +340,7 @@ fun ImagePicker(modifier: Modifier = Modifier, context: Context,navController: N
                 colors = ButtonDefaults.buttonColors(Color.Gray)) {
                 Text(text = "Upload")
             }
+
         }
     }
 }

@@ -619,6 +619,481 @@ fun ShopScreen(navController: NavController){
 
 
 
+                        
+                    }
+
+                    Spacer(modifier = Modifier.height(30.dp))
+
+
+                    Card(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(1100.dp),
+                        shape = RoundedCornerShape(topStart = 60.dp, topEnd = 60.dp, bottomEnd = 60.dp, bottomStart = 60.dp ),
+                        colors = CardDefaults.cardColors(greenyellow)
+                    ) {
+                        Text(
+                            text = "Seeds",
+                            fontSize = 25.sp,
+                            modifier = Modifier.fillMaxWidth(),
+                            textAlign = TextAlign.Center,
+                        )
+
+
+                        //Row1
+                        Row {
+                            Card(
+                                modifier = Modifier.padding(
+                                    top = 10.dp,
+                                    start = 10.dp,
+                                    end = 10.dp
+                                )
+                            ) {
+                                Box(
+                                    modifier = Modifier
+                                        .height(180.dp)
+                                        .width(140.dp),
+                                    contentAlignment = Alignment.Center
+                                ) {
+
+                                    Image(
+                                        painter = painterResource(id = R.drawable.cabbage),
+                                        contentDescription = "cabbage",
+                                        modifier = Modifier.fillMaxSize(),
+                                        contentScale = ContentScale.Crop
+                                    )
+                                    Icon(
+                                        imageVector = Icons.Default.Favorite,
+                                        contentDescription = "favourite",
+                                        modifier = Modifier
+                                            .align(Alignment.TopStart)
+                                            .padding(10.dp),
+                                        tint = Color.Black
+                                    )
+
+
+                                }
+
+                            }
+                            Column(modifier = Modifier.padding(start = 10.dp, top = 10.dp)) {
+                                Text(text = "Cabbage seeds", fontSize = 20.sp)
+                                Text(text = "Brand : Simlaw Seeds")
+                                Row {
+                                    Icon(
+                                        imageVector = Icons.Default.Star,
+                                        contentDescription = "star",
+                                        tint = Color.Black,
+                                        modifier = Modifier.size(35.dp)
+                                    )
+                                    Icon(
+                                        imageVector = Icons.Default.Star,
+                                        contentDescription = "star",
+                                        tint = Color.Black,
+                                        modifier = Modifier.size(35.dp)
+                                    )
+                                    Icon(
+                                        imageVector = Icons.Default.Star,
+                                        contentDescription = "star",
+                                        tint = Color.Black,
+                                        modifier = Modifier.size(35.dp)
+                                    )
+                                    Icon(
+                                        imageVector = Icons.Default.Star,
+                                        contentDescription = "star",
+                                        tint = Color.Black,
+                                        modifier = Modifier.size(35.dp)
+                                    )
+
+                                }
+
+                                Text(text = "1,500 Reviews")
+                                Text(text = "Price : Ksh.400 per Kg")
+                                Spacer(modifier = Modifier.height(10.dp))
+
+
+                                val mContext = LocalContext.current
+                                Button(
+                                    onClick = {
+                                        val callIntent= Intent(Intent.ACTION_DIAL)
+                                        callIntent.data="tel:0720245837".toUri()
+                                        mContext.startActivity(callIntent)
+
+                                    },
+                                    modifier = Modifier
+                                        .padding(end = 10.dp)
+                                        .fillMaxWidth()
+                                        .height(50.dp),
+                                    colors = ButtonDefaults.buttonColors(Color.Black),
+                                    shape = RoundedCornerShape(15.dp)
+                                ) {
+                                    Text(text = "Call to Order")
+
+                                }
+                            }
+
+
+                        }
+
+                        Spacer(modifier = Modifier.height(15.dp))
+
+
+                        //Row 2
+                        Row {
+                            Card(
+                                modifier = Modifier.padding(
+                                    top = 10.dp,
+                                    start = 10.dp,
+                                    end = 10.dp
+                                )
+                            ) {
+                                Box(
+                                    modifier = Modifier
+                                        .height(180.dp)
+                                        .width(140.dp),
+                                    contentAlignment = Alignment.Center
+                                ) {
+
+                                    Image(
+                                        painter = painterResource(id = R.drawable.maize),
+                                        contentDescription = "maize",
+                                        modifier = Modifier.fillMaxSize(),
+                                        contentScale = ContentScale.Crop
+                                    )
+
+
+
+                                }
+
+                            }
+                            Column(modifier = Modifier.padding(start = 10.dp, top = 10.dp)) {
+                                Text(text = "Maize seeds", fontSize = 20.sp)
+                                Text(text = "Brand : Simlaw seeds")
+                                Row {
+                                    Icon(
+                                        imageVector = Icons.Default.Star,
+                                        contentDescription = "star",
+                                        tint = Color.Black,
+                                        modifier = Modifier.size(35.dp)
+                                    )
+                                    Icon(
+                                        imageVector = Icons.Default.Star,
+                                        contentDescription = "star",
+                                        tint = Color.Black,
+                                        modifier = Modifier.size(35.dp)
+                                    )
+                                    Icon(
+                                        imageVector = Icons.Default.Star,
+                                        contentDescription = "star",
+                                        tint = Color.Black,
+                                        modifier = Modifier.size(35.dp)
+                                    )
+                                    Icon(
+                                        imageVector = Icons.Default.Star,
+                                        contentDescription = "star",
+                                        tint = Color.Black,
+                                        modifier = Modifier.size(35.dp)
+                                    )
+
+                                }
+
+                                Text(text = "1,780 Reviews")
+                                Text(text = "Price : Ksh.200 per Kg")
+                                Spacer(modifier = Modifier.height(10.dp))
+
+
+                                val mContext = LocalContext.current
+                                Button(
+                                    onClick = {
+                                        val callIntent= Intent(Intent.ACTION_DIAL)
+                                        callIntent.data="tel:0720245837".toUri()
+                                        mContext.startActivity(callIntent)
+
+                                    },
+                                    modifier = Modifier
+                                        .padding(end = 10.dp)
+                                        .fillMaxWidth()
+                                        .height(50.dp),
+                                    colors = ButtonDefaults.buttonColors(Color.Black),
+                                    shape = RoundedCornerShape(15.dp)
+                                ) {
+                                    Text(text = "Call to Order")
+
+                                }
+                            }
+
+
+                        }
+                        Spacer(modifier = Modifier.height(15.dp))
+
+
+                        //Row 3
+                        Row {
+                            Card(
+                                modifier = Modifier.padding(
+                                    top = 10.dp,
+                                    start = 10.dp,
+                                    end = 10.dp
+                                )
+                            ) {
+                                Box(
+                                    modifier = Modifier
+                                        .height(180.dp)
+                                        .width(140.dp),
+                                    contentAlignment = Alignment.Center
+                                ) {
+
+                                    Image(
+                                        painter = painterResource(id = R.drawable.tomato),
+                                        contentDescription = "tomatoe",
+                                        modifier = Modifier.fillMaxSize(),
+                                        contentScale = ContentScale.Crop
+                                    )
+
+
+
+                                }
+
+                            }
+                            Column(modifier = Modifier.padding(start = 10.dp, top = 10.dp)) {
+                                Text(text = "Tomato seeds", fontSize = 20.sp)
+                                Text(text = "Brand : Kenya seed company")
+                                Row {
+                                    Icon(
+                                        imageVector = Icons.Default.Star,
+                                        contentDescription = "star",
+                                        tint = Color.Black,
+                                        modifier = Modifier.size(35.dp)
+                                    )
+                                    Icon(
+                                        imageVector = Icons.Default.Star,
+                                        contentDescription = "star",
+                                        tint = Color.Black,
+                                        modifier = Modifier.size(35.dp)
+                                    )
+                                    Icon(
+                                        imageVector = Icons.Default.Star,
+                                        contentDescription = "star",
+                                        tint = Color.Black,
+                                        modifier = Modifier.size(35.dp)
+                                    )
+                                    Icon(
+                                        imageVector = Icons.Default.Star,
+                                        contentDescription = "star",
+                                        tint = Color.Black,
+                                        modifier = Modifier.size(35.dp)
+                                    )
+
+                                }
+
+                                Text(text = "3,290 Reviews")
+                                Text(text = "Price : Ksh.800 per Kg")
+                                Spacer(modifier = Modifier.height(10.dp))
+
+
+                                val mContext = LocalContext.current
+                                Button(
+                                    onClick = {
+                                        val callIntent= Intent(Intent.ACTION_DIAL)
+                                        callIntent.data="tel:0720245837".toUri()
+                                        mContext.startActivity(callIntent)
+
+                                    },
+                                    modifier = Modifier
+                                        .padding(end = 10.dp)
+                                        .fillMaxWidth()
+                                        .height(50.dp),
+                                    colors = ButtonDefaults.buttonColors(Color.Black),
+                                    shape = RoundedCornerShape(15.dp)
+                                ) {
+                                    Text(text = "Call to Order")
+
+                                }
+                            }
+
+
+                        }
+
+                        Spacer(modifier = Modifier.height(15.dp))
+
+
+                        //Row 4
+                        Row {
+                            Card(
+                                modifier = Modifier.padding(
+                                    top = 10.dp,
+                                    start = 10.dp,
+                                    end = 10.dp
+                                )
+                            ) {
+                                Box(
+                                    modifier = Modifier
+                                        .height(180.dp)
+                                        .width(140.dp),
+                                    contentAlignment = Alignment.Center
+                                ) {
+
+                                    Image(
+                                        painter = painterResource(id = R.drawable.skumawiki),
+                                        contentDescription = "skumawiki",
+                                        modifier = Modifier.fillMaxSize(),
+                                        contentScale = ContentScale.Crop
+                                    )
+
+
+
+                                }
+
+                            }
+                            Column(modifier = Modifier.padding(start = 10.dp, top = 10.dp)) {
+                                Text(text = "Kale seeds", fontSize = 20.sp)
+                                Text(text = "Brand : Kenya seed company")
+                                Row {
+                                    Icon(
+                                        imageVector = Icons.Default.Star,
+                                        contentDescription = "star",
+                                        tint = Color.Black,
+                                        modifier = Modifier.size(35.dp)
+                                    )
+                                    Icon(
+                                        imageVector = Icons.Default.Star,
+                                        contentDescription = "star",
+                                        tint = Color.Black,
+                                        modifier = Modifier.size(35.dp)
+                                    )
+                                    Icon(
+                                        imageVector = Icons.Default.Star,
+                                        contentDescription = "star",
+                                        tint = Color.Black,
+                                        modifier = Modifier.size(35.dp)
+                                    )
+                                    Icon(
+                                        imageVector = Icons.Default.Star,
+                                        contentDescription = "star",
+                                        tint = Color.Black,
+                                        modifier = Modifier.size(35.dp)
+                                    )
+
+                                }
+
+                                Text(text = "880 Reviews")
+                                Text(text = "Price : Ksh.700 per Kg")
+                                Spacer(modifier = Modifier.height(10.dp))
+
+
+                                val mContext = LocalContext.current
+                                Button(
+                                    onClick = {
+                                        val callIntent= Intent(Intent.ACTION_DIAL)
+                                        callIntent.data="tel:0720245837".toUri()
+                                        mContext.startActivity(callIntent)
+
+                                    },
+                                    modifier = Modifier
+                                        .padding(end = 10.dp)
+                                        .fillMaxWidth()
+                                        .height(50.dp),
+                                    colors = ButtonDefaults.buttonColors(Color.Black),
+                                    shape = RoundedCornerShape(15.dp)
+                                ) {
+                                    Text(text = "Call to Order")
+
+                                }
+                            }
+
+
+                        }
+
+                        Spacer(modifier = Modifier.height(15.dp))
+
+                        //Row 5
+                        Row {
+                            Card(
+                                modifier = Modifier.padding(
+                                    top = 10.dp,
+                                    start = 10.dp,
+                                    end = 10.dp
+                                )
+                            ) {
+                                Box(
+                                    modifier = Modifier
+                                        .height(180.dp)
+                                        .width(140.dp),
+                                    contentAlignment = Alignment.Center
+                                ) {
+
+                                    Image(
+                                        painter = painterResource(id = R.drawable.chillies),
+                                        contentDescription = "chillies",
+                                        modifier = Modifier.fillMaxSize(),
+                                        contentScale = ContentScale.Crop
+                                    )
+
+
+
+                                }
+
+                            }
+                            Column(modifier = Modifier.padding(start = 10.dp, top = 10.dp)) {
+                                Text(text = "Pepper seeds", fontSize = 20.sp)
+                                Text(text = "Brand : Simlaw")
+                                Row {
+                                    Icon(
+                                        imageVector = Icons.Default.Star,
+                                        contentDescription = "star",
+                                        tint = Color.Black,
+                                        modifier = Modifier.size(35.dp)
+                                    )
+                                    Icon(
+                                        imageVector = Icons.Default.Star,
+                                        contentDescription = "star",
+                                        tint = Color.Black,
+                                        modifier = Modifier.size(35.dp)
+                                    )
+                                    Icon(
+                                        imageVector = Icons.Default.Star,
+                                        contentDescription = "star",
+                                        tint = Color.Black,
+                                        modifier = Modifier.size(35.dp)
+                                    )
+                                    Icon(
+                                        imageVector = Icons.Default.Star,
+                                        contentDescription = "star",
+                                        tint = Color.Black,
+                                        modifier = Modifier.size(35.dp)
+                                    )
+
+                                }
+
+                                Text(text = "5,970 Reviews")
+                                Text(text = "Price : Ksh.700 per Kg")
+                                Spacer(modifier = Modifier.height(10.dp))
+
+
+                                val mContext = LocalContext.current
+                                Button(
+                                    onClick = {
+                                        val callIntent= Intent(Intent.ACTION_DIAL)
+                                        callIntent.data="tel:0720245837".toUri()
+                                        mContext.startActivity(callIntent)
+
+                                    },
+                                    modifier = Modifier
+                                        .padding(end = 10.dp)
+                                        .fillMaxWidth()
+                                        .height(50.dp),
+                                    colors = ButtonDefaults.buttonColors(Color.Black),
+                                    shape = RoundedCornerShape(15.dp)
+                                ) {
+                                    Text(text = "Call to Order")
+
+                                }
+                            }
+
+
+                        }
+
+
+
 
 
 

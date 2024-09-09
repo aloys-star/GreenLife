@@ -56,6 +56,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.greenlife.R
 import com.example.greenlife.navigation.ROUT_FRUITS
+import com.example.greenlife.navigation.ROUT_GRAINS
 import com.example.greenlife.navigation.ROUT_SOILTYPE
 import com.example.greenlife.navigation.ROUT_VEGETABLES
 import com.example.greenlife.navigation.ROUT_VIEWCROP
@@ -152,7 +153,7 @@ fun CroptypeScreen(navController: NavController){
                         )
 
                         Button(
-                            onClick = { navController.navigate(ROUT_VEGETABLES) },
+                            onClick = { navController.navigate(ROUT_GRAINS) },
                             modifier = Modifier
                                 .fillMaxWidth()
                                 .height(50.dp),
